@@ -18,7 +18,7 @@ class CategoryWidget extends StatelessWidget {
             image: AssetImage('assets/entertaiment.avif'),
             fit: BoxFit.fill,
           ),
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(13),
         ),
         child: Text(
           'Entertainment',
