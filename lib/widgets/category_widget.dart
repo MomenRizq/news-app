@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 class CategoryWidget extends StatelessWidget {
   const CategoryWidget({
     super.key,
+    required this.title,
+    required this.imageUrl,
   });
 
+  final String title;
+  final String imageUrl;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -15,13 +19,13 @@ class CategoryWidget extends StatelessWidget {
         width: 150,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/entertaiment.avif'),
+            image: AssetImage(imageUrl),
             fit: BoxFit.fill,
           ),
           borderRadius: BorderRadius.circular(13),
         ),
         child: Text(
-          'Entertainment',
+          title,
           style: TextStyle(
               color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
         ),

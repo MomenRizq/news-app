@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/model/articles_model.dart';
 
 class NewsWidget extends StatelessWidget {
   const NewsWidget({
     super.key,
+    required this.articlesModel,
   });
 
+  final ArticlesModel articlesModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -13,8 +16,9 @@ class NewsWidget extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
-            child: Image.asset(
-              'assets/sports.avif',
+            child: Image.network(
+              articlesModel.urlToImage ??
+                  "https://i.pinimg.com/originals/dc/55/a7/dc55a7baa9cbd457221ae6d12d9b1b51.jpg",
               height: 150,
               width: double.infinity,
               fit: BoxFit.cover,
@@ -22,7 +26,7 @@ class NewsWidget extends StatelessWidget {
           ),
           const SizedBox(height: 7),
           Text(
-            'how you can win the game with one step how you can win the game with one step how you can win the game with one step ',
+            articlesModel.title,
             style: TextStyle(
               fontSize: 18,
             ),
@@ -30,7 +34,7 @@ class NewsWidget extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
           Text(
-            'how you can win the game with one step how you can win the game with one step how you can win the game with one step ',
+            articlesModel.description,
             style: TextStyle(
               fontSize: 12,
               color: Colors.grey,
